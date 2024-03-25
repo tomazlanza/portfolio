@@ -1,0 +1,13 @@
+{
+  "name": "tomaz-lanza-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./controller/index.mjs",
+  "scripts": {
+    "start": "node ./controller/index.mjs",
+    "deploy": "gcloud app deploy"
+  },
+  "keywords": ["portfolio", "tomaz", "lanza", "data science", "web development"],
+  "author": "Tomaz Mendes Lanza Ferreira",
+  "license": "ISC"
+}

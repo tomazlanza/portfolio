@@ -1,0 +1,639 @@
+* {
+  box-sizing: border-box;
+  font-family: Arimo, sans-serif;
+}
+:root {
+  --main-bg-color: #313131ff;
+  --second-bg-color: #4B4B4B;
+  --third-bg-color: #1e1e1e;
+  --main-details-color: #1f5879;
+  --main-details-color-2: #3394CB;
+  --second-details-color: #a88138 ;
+  --third-details-color: #C49B4F ;
+  --fourth-details-color: #c7ad7c4a;
+  --fifth-details-color: #efe0c4ec;
+  --text-color: #BBB9BD;
+  --sub-header-color: rgba(255, 255, 255, 0.858);
+  width: 100vw;
+}
+body {
+  margin: 0;
+  height: 100%;
+  background-color: var(--main-bg-color);
+  overflow-x: hidden;
+}
+header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 21dvh;
+  background-color: var(--main-bg-color);
+  transition: height 0.3s ease;
+  background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/header-background.png");
+  background-blend-mode: multiply;
+  background-size: cover;
+  z-index: 50;
+}
+.shrunk-header {
+  height: 14dvh;
+}
+.shrunk-header #header-title {
+  margin-bottom: 9px;
+}
+#header-title {
+  color: var(--second-details-color);
+  font-family: sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cascade-animation {
+  opacity: 1;
+  animation: fadingInCascade 8s ease forwards;
+  animation-play-state: paused;
+  animation-iteration-count: infinite;
+  animation-delay: calc(var(--cascade-order) * 0.12s);
+}
+.running-animation {
+  animation-play-state: running !important;
+}
+@keyframes fadingInCascade {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#nav-wrapper {
+  background-color: var(--third-bg-color);
+  width: 100dvw;
+}
+#nav-wrapper nav {
+  width: 100dvw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-height: 7.5dvh;
+}
+#nav-wrapper nav span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#nav-wrapper nav span a {
+  color: var(--second-details-color);
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+#nav-wrapper nav span a:hover {
+  color: var(--third-details-color)
+}
+p {
+  color: var(--fifth-details-color);
+}
+section {
+  min-height: 50dvh;
+}
+h3 {
+  color: var(--fifth-details-color);
+} 
+h2 {
+  color: var(--fifth-details-color);
+  font-size: 2.2rem;
+}
+
+#welcome-section {
+  font-size: clamp(2rem, 4rem, 5rem);
+  padding-top: calc(21dvh + 1rem);
+  padding-bottom: 10dvh;
+  background-color: var(--main-bg-color);
+  color: var(--fifth-details-color);
+  display: flex;
+  position: relative;
+  width: 100%;
+  scroll-margin-top: 100px;
+}
+#welcome-section #welcome-section-text-wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#welcome-section #welcome-section-text-wrapper p {
+  position: relative;
+  transform: translateX(-200%);
+  animation: introEffect 1.3s ease forwards;
+  animation-delay: calc(var(--order) * 0.35s);
+  z-index: 5;
+}
+#welcome-section #welcome-section-text-wrapper p:first-of-type {
+  text-align: center;
+  margin-top: 140px;
+  margin-bottom: -2rem;
+}
+#welcome-section #welcome-section-text-wrapper p:nth-of-type(2) {
+  /* text-align: center; */
+  margin-bottom: 100px;
+}
+@keyframes introEffect {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+#photo-styling-div {
+  position: absolute;
+  width: 60%;
+  height: 10rem;
+  bottom: 0;
+  right: 0;
+}
+.photo {
+  width: 50dvw;
+  height: 80dvh;
+  margin-top: -3rem;
+  position: absolute;
+  right: 0;
+  border-radius: 100% 0% 0% 100%;
+  z-index: 1;
+  transform: translateX(10%);
+}
+.top-welcome-photo {
+  z-index: 2;
+}
+
+.up-arrow {
+  position: fixed;
+  right: 3%;
+  bottom: 7%;
+  z-index: 20;
+  max-width: 6dvw;
+  transform: scale(0.0001);
+  transition: all 0.5s ease;
+}
+
+.up-arrow:hover {
+  cursor: pointer;
+  filter: sepia(60%) saturate(280%) hue-rotate(1deg) brightness(100%) contrast(80%);
+}
+
+.visible-up-arrow {
+  transform: scale(1);
+}
+#skills-section {
+  position: relative;
+  background-color: var(--second-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+  scroll-margin-top: 150px;
+}
+#skills-section h2 {
+  margin-top: 0;
+}
+.skills-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.skills-wrapper .skill h3 {
+  margin-bottom: -5px;
+  margin-top: 14px;
+  text-align: center;
+}
+
+#first-skills-wrapper {
+  margin-top: -3.5rem;
+}
+
+#second-skills-wrapper {
+  margin-top: -1rem;
+}
+
+.skills-wrapper .skill:nth-child(2) {
+  margin-left: 7.5rem;
+}
+.skill {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 22dvw;
+  max-height: 26dvh;
+  border: solid var(--main-details-color-2) 0.1rem;
+  margin: 3rem;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10%;
+}
+.skill-image {
+  max-width: 4rem;
+  /* position: absolute;
+  top: -20%;
+  right: 40%;
+   */
+}
+.mathematics-statistics-image {
+  max-width: 5.5rem;
+}
+
+.skill-explanation {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: justify;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  min-height: 15dvh;
+  width: 80%;
+  line-height: 1.2rem;
+}
+p:not(.welcome-message) {
+  color: var(--text-color)
+}
+
+.rescale-skill-circle {
+  transform: scale(1) !important;
+  transition: transform 2s ease;
+}
+
+.skill-circle {
+  transform: scale(0.5);
+  min-width: 6rem; 
+  min-height: 5.5rem;
+  border-radius: 50%; 
+  overflow: hidden; 
+  background-color: rgba(250, 235, 215);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -0.15rem;
+}
+
+.spacer {
+  aspect-ratio: 900/200;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer1 {
+  background-image: url("./public/images/svg/layers/layer1.svg");
+  margin-bottom: -25dvh;
+  position: relative;
+  z-index: 10;
+}
+.layer2 {
+  background-image: url("./public/images/svg/layers/layer2.svg");
+  margin-bottom: -25dvh;
+  position: relative;
+  z-index: 10;
+}
+#portfolio-section {
+  background-color: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 11;
+  scroll-margin-top: 120px;
+}
+#portfolio-section div:first-of-type {
+  display: flex;
+  justify-content: center;
+}
+.portfolio-arrow {
+  min-height: 22dvh;
+  position: absolute;
+}
+.portfolio-arrow:first-of-type {
+  left: 10%;
+}
+.portfolio-arrow:nth-of-type(2) {
+  right: 10%;
+}
+.portfolio-arrow:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+#projects-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 60dvh;
+}
+
+.project {
+  border: solid 0.1rem var(--main-details-color-2);
+  min-width: 50%;
+  min-height: 55dvh;
+  border-radius: 3%;
+  position: absolute;
+  transition: all 1s ease;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.project h3 {
+  color: var(--main-bg-color);
+  text-align: center;
+}
+
+.hidden-project {
+  display: none;
+}
+
+.project:hover {
+  box-shadow: 2px 2px #3394CB,
+  -2px -2px #3394CB,
+  3px 3px #3394CB,
+  -3px -3px #3394CB,
+  4px 4px 2px 2px #2976A2,
+  -4px -4px 2px 2px #2976A2,
+  6px 6px 2px 2px #2976A2,
+  -6px -6px 2px 2px #2976A2,
+  8px 8px 4px 4px var(--main-details-color),
+  -8px -8px 4px 4px var(--main-details-color);
+  scale: 1.05;
+  cursor: pointer;
+}
+
+#calculator-project {
+  background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/calculator-background.jpg");
+  background-size: cover;
+}
+
+#rgb-filter-project {
+  background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/rgb-filter-background.jpg");
+  background-size: cover;
+}
+
+#about-section {
+  background-color: var(--second-bg-color);
+  width: 100%;
+  min-height: 65dvh;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#about-section div h2 {
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
+}
+#about-section div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  width: 50dvw;
+  justify-content: flex-start;
+  text-align: justify;
+  line-height: 1.8rem;
+  font-size: 1.35rem;
+}
+#about-section div:nth-child(2) p {
+  margin-bottom: 0.2rem;
+}
+
+/* scrolling effects for skill and about sections */
+.hidden {
+  opacity: 0;
+  filter:blur(1%);
+  transform: translateY(-10%);
+  transition: all 0.5s ease;
+}
+.shown {
+  opacity: 1;
+  filter:blur(0);
+  transform: translateY(0);
+}
+
+footer {
+  background-color: var(--third-bg-color);
+  font-size: 1.5rem;
+  color: var(--second-details-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  width: 100dvw;
+  z-index: 10;
+  max-height: 5dvw;
+}
+
+footer p {
+  margin: 12px 0;
+}
+#roman-year {
+  color: var(--fifth-details-color)
+}
+
+address {
+  padding-top: 0.4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 15dvw;
+}
+
+.logo {
+  border-radius: 30%;
+  max-width: 1.5rem;
+  margin-right: 0.2rem;
+  display: inline;
+  transition: all 0.5s;
+}
+
+.logo:hover {
+  transition: all 0.25s ease;
+  /* original: filter: invert(63%) sepia(60%) saturate(361%) hue-rotate(1deg) brightness(89%) contrast(91%); */
+  filter: sepia(60%) saturate(280%) hue-rotate(1deg) brightness(100%) contrast(80%);
+  /* filter got from: https://codepen.io/sosuke/pen/Pjoqqp */
+}
+
+@media (max-width: 500px) {
+  
+  body {
+    height: 100dvh;
+  }
+  
+  header {
+    height: 19dvh;
+  }
+  
+  #nav-wrapper {
+    min-height: 7.9dvh;
+  }
+  
+  #nav-wrapper nav span a {
+    font-size: 1.4rem;
+  }
+  
+  #welcome-section #welcome-section-text-wrapper {
+    min-height: 75dvh;
+  }
+
+  #welcome-section #welcome-section-text-wrapper p:first-of-type {
+    margin-top: -2rem;
+  }
+
+  .photo {
+    width: 57dvw;
+    height: 36dvh;
+    transform: translate(22%, 28%);
+    border-radius: 50% 50% 50% 50%;
+    margin-top: 0;
+  }
+  
+  #welcome-section {
+    font-size: 1.8rem;
+  }
+
+  #skills-section {
+    height: 80dvh;
+    padding-top: 32rem;
+    padding-bottom: 23rem;
+  }
+  
+  #skills-section h2 {
+    margin-top: -5rem;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .skill {
+    min-width: 38dvw;
+    min-height: 40dvh;
+    margin: 2rem;
+    font-size: 1rem;
+  }
+  
+  .skill-image {
+    max-width: 3rem;
+  }
+
+  .skill-circle {
+    min-width: 5rem;
+    min-height: 5rem;
+  }
+
+  .mathematics-statistics-image {
+    max-width: 4.5rem;
+  }
+
+  .skills-wrapper .skill:nth-child(2) {
+    margin-left: 1rem;
+  }
+
+  #about-section {
+    scroll-margin-top: 100px;
+  }
+
+  #about-section div:nth-child(2) {
+    font-size: 1.25rem;
+  }
+  
+  #about-section div h2 {
+    font-size: 1.5rem;
+  }
+
+  .section {
+    height: 800px;
+  }
+
+  #projects-wrapper {
+    height: 700px;
+    margin-top: -6rem;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  #projects-wrapper div h2 {
+    font-size: 1.5rem;
+  }
+
+  .portfolio-arrow {
+    min-height: 9dvh;
+  }
+
+  #left-arrow {
+    left: 3%;
+  }
+  
+  #right-arrow {
+    right: 3%;
+  }
+
+  .spacer {
+    display: none;
+  }
+
+  .project {
+    min-width: 60%;
+  }
+
+  #portfolio-section {
+    padding-top: 4rem;
+  }
+
+  .up-arrow {
+    max-width: 10dvw;
+    top: 50%;
+    right: 25;
+  }
+
+  #about-section div {
+    margin-top: 4rem;
+  }
+
+  #about-section div:nth-child(2) {
+    width: 70dvw;
+    margin-top: 1rem;
+  }
+
+  #rgb-filter-project h3 {
+    display: none;
+  }
+
+  footer {
+    max-height: 10dvh;
+  }
+  .logo {
+    margin-right: 0.7rem;
+  }
+}
+
+
+@media(prefers-reduced-motion) {
+  .rescale-skill-circle {
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Tomaz Mendes Lanza Ferreira">
+  <meta name="description" content="Tomaz Lanza's portfolio">
+  
+  <title>Tomaz Lanza</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+  <script defer src="main.js"></script>
+</head>
+<body>
+    <header>
+      <div id="header-title-wrapper">
+        <h1 id="header-title">
+          <span class="title-char cascade-animation" style="--cascade-order: 1">
+            T
+          </span>
+          <span class="title-char cascade-animation" style="--cascade-order: 2">
+            o
+          </span>
+          <span class="title-char cascade-animation" style="--cascade-order: 3">
+            m
+          </span>
+          <span class="title-char cascade-animation" style="--cascade-order: 4">
+            a
+          </span>
+          <span class="title-char cascade-animation" style="--cascade-order: 5">
+            z
+          </span>  
+          <span class="title-char cascade-animation" style="--cascade-order: 6">  
+            &nbsp;
+          </span>  
+          <span class="title-char cascade-animation" style="--cascade-order: 7">
+            L
+          </span>  
+          <span class="title-char cascade-animation" style="--cascade-order: 8">
+            a
+          </span>  
+          <span class="title-char cascade-animation" style="--cascade-order: 9">
+            n
+          </span>  
+          <span class="title-char cascade-animation" style="--cascade-order: 10">
+            z
+          </span>  
+          <span class="title-char cascade-animation" style="--cascade-order: 11">
+            a
+          </span>
+        </h1>
+      </div>
+      <div id="nav-wrapper">
+        <nav>
+          <span>
+            <a id="expertise-link">
+              Expertise
+            </a>
+          </span>
+          <span>
+            <a id="portfolio-link">
+              Portfolio
+            </a>
+          </span>
+          <span>
+            <a id="about-link">
+              About
+            </a>
+          </span>
+        </nav>
+      </div>
+    </header>
+
+    <article>
+      <section id="welcome-section">
+        <div id="welcome-section-text-wrapper">
+          <p class="welcome-message" style="--order: 0">
+            Aggregate value to your business 
+          </p>
+          <p class="welcome-message" style="--order: 1">
+            with professional excellence
+          </p>
+        </div>
+        
+        <img class="photo photo-1 top-welcome-photo" src="http://tomaz-lanza.uc.r.appspot.com/public/images/first-profile-photo.jpg">
+        <!-- <img class="photo photo-2" src="http://tomaz-lanza.uc.r.appspot.com/public/images/second-profile-photo.jpg"> -->
+        
+        <img
+          class="up-arrow"
+          src="./public/images/svg/stylized-svg/arrow-up.svg"
+        >
+      </section>
+
+      <div class="spacer layer1"></div>
+
+      <section id="skills-section">
+        <div>
+          <h2>
+            Expertise
+          </h2>
+        </div>
+        <div class="skills-wrapper" id="first-skills-wrapper">
+          <div class="skill">
+            <div class="skill-circle hidden-skill-circle">
+              <img 
+                src="./public/images/svg/stylized-svg/web-programming.svg"
+                alt="Web-development picture."
+                class="skill-image"
+              >
+            </div>
+            <h3>
+              Web Development
+            </h3>
+            <p class="skill-explanation">The strength and versatility of web-based applications.</p>
+          </div>
+          <div class="skill">
+            <div class="skill-circle hidden-skill-circle">
+              <img 
+                src="./public/images/svg/stylized-svg/statistics.svg"
+                alt="Statistics picture."
+                class="skill-image mathematics-statistics-image"
+              >
+            </div>
+            <h3>
+              Math and Stats Modelling
+            </h3>
+            <p class="skill-explanation">Solutions with the power of deterministic and stochastic models.</p>
+          </div>        </div>
+        <div class="skills-wrapper" id="second-skills-wrapper">
+          <div class="skill">
+            <div class="skill-circle hidden-skill-circle">
+              <img 
+                src="./public/images/svg/stylized-svg/scatterplot.svg"
+                alt="Data-analysis picture."
+                class="skill-image"
+              >
+            </div>
+            <h3>
+              Data Analysis
+            </h3>
+            <p class="skill-explanation">In the Data Era, the sky is the limit when it comes to data-tailored applications and solutions.</p>
+          </div>
+          <div class="skill">
+            <div class="skill-circle hidden-skill-circle">
+              <img 
+                src="./public/images/svg/stylized-svg/robot.svg"
+                alt="Automation picture."
+                class="skill-image"
+              >
+            </div>
+            <h3>
+              Task Automation
+            </h3>
+            <p class="skill-explanation">Soaring productivity through smart automation of tasks.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="spacer layer2"></div>
+
+      <section id="portfolio-section">
+        <div>
+          <h2>
+            Portfolio
+          </h2>
+        </div>
+        <div id="projects-wrapper">
+          <img 
+            src="./public/images/svg/stylized-svg/arrow-left.svg"
+            alt="left-arrow"
+            id="left-arrow"
+            class="portfolio-arrow"
+          >
+          <div id="calculator-project" class="project highlighted-project">
+            <h3>
+              Calculator
+            </h3>
+          </div>
+          <div id="rgb-filter-project" class="project hidden-project">
+            <h3>
+              RGB Filter
+            </h3>
+          </div>
+          <img 
+            src="./public/images/svg/stylized-svg/arrow-right.svg"
+            alt="right-arrow"
+            id="right-arrow"
+            class="portfolio-arrow"
+          >
+        </div>        
+      </section>
+
+      <div class="spacer layer1"></div>
+
+      <section id="about-section">
+        <div>
+          <h2>
+            About
+          </h2>
+        </div>
+        <div>
+          <p>
+            Greetings! With almost seven years of corporate experience, I have specialized in Statistics and Web Development.
+          </p>
+          <p>
+            I hold a bachelor's degree in Actuarial Science and have a background concerning a variety of technologies, such as R, Python, SQL, VBA, JavaScript/TypeScript, React, Node.js, and more.
+          </p>
+          <p>
+            Besides mere usage of individual technologies, my path has led me to focus on the core concepts that underpin them and the possibilities of their implementation, favoring comprehensive and versatile problem solving.
+          </p>
+          <p>
+            
+          </p>
+        </div>
+      </section>
+    
+      <div id="scroll-to-top">
+      </div>
+    
+    </article>
+    <footer>
+      <p id="roman-year">MMXXIV</p>
+      <address>
+        <a class="contact-link" href="https://github.com/tomazlanza" target="_blank">
+          <img 
+            class="logo cascade-animation" 
+            id="github-logo"
+            src="./public/images/svg/social-media-logos/Golden-SVG-logos/1-Golden-github-logo.svg" 
+            style="--cascade-order: 12"
+            alt="GitHub logo"
+          />
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/" target="_blank">
+          <img 
+            class="logo cascade-animation" 
+            src="./public/images/svg/social-media-logos/Golden-SVG-logos/2-Golden-linkedIn-logo.svg" 
+            alt="LinkedIn logo"
+            style="--cascade-order: 13"
+          />
+
+        </a>
+        <a class="contact-link" href="https://www.instagram.com/tomaz.lanza" target="_blank">
+          <img 
+            class="logo cascade-animation" 
+            src="./public/images/svg/social-media-logos/Golden-SVG-logos/3-Golden-Instagram-logo.svg" 
+            alt="Instagram logo"
+            style="--cascade-order: 14"
+          />
+
+        </a>
+        <a class="contact-link" href="mailto:lanza.tomaz@gmail.com">
+          <img 
+            class="logo cascade-animation" 
+            src="./public/images/svg/social-media-logos/Golden-SVG-logos/4-Golden-e-mail-logo.svg"
+            alt="e-mail icon"
+            style="--cascade-order: 15"
+          />
+
+        </a>
+        <a class="contact-link" href="https://api.whatsapp.com/send?phone=5531975274373">
+          <img 
+            class="logo cascade-animation"
+            src="./public/images/svg/social-media-logos/Golden-SVG-logos\5-Golden-whatsapp-logo.svg" 
+            alt="e-mail icon"
+            style="--cascade-order: 16"
+          />
+        </a>
+      </address>
+    </footer>
+</body>
+</html>
