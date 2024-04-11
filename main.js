@@ -8,7 +8,6 @@ const skillsSection = document.querySelector("#skills-section")
 const portfolioSection = document.querySelector("#portfolio-section")
 const aboutSection = document.querySelector("#about-section")
 
-
 const logos = document.querySelectorAll(".logo")
 const leftArrow = document.querySelector("#left-arrow")
 const rightArrow = document.querySelector("#right-arrow")
@@ -17,34 +16,23 @@ const projects = document.querySelectorAll(".project")
 const skillCircles = document.querySelectorAll(".skill-circle")
 const calculatorProject = document.querySelector("#calculator-project")
 const rgbFilterProject = document.querySelector("#rgb-filter-project")
-const expertiseLink = document.querySelector("#expertise-link")
+const skillsLink = document.querySelector("#skills-link")
 const portfolioLink = document.querySelector("#portfolio-link")
 const aboutLink = document.querySelector("#about-link")
-
 
 ////////////////////////////////////////
 //////// navbar links
 ////////////////////////////////////////
 
-expertiseLink.addEventListener(
+skillsLink.addEventListener(
   "click",
   ()  => {
-    skillsSection.scrollIntoView( 
-      {behavior: "smooth"}
+    window.scrollTo( 
+      {
+        top: 0, 
+        behavior: "smooth",
+      }
     )
-    setTimeout(
-      () => {
-        skillsSection.scroll(
-          {
-            top: 50,
-            behavior: "smooth",
-          }
-        )
-      }, 1000)
-    setTimeout(
-      () => {
-        console.log("puta que pariu, porra!")
-      }, 1000)
   }
 )
 portfolioLink.addEventListener(
@@ -81,7 +69,6 @@ aboutLink.addEventListener(
       }, 400)
   }
 )
-
 
 ////////////////////////////////////////
 //////// CSS animations
@@ -169,85 +156,6 @@ const slidingPhotos = () => {
   )
 }
 
-//setting listeners that will call the function
-
-// const attachAnimationEndListeners = () => {
-//   photos.forEach(
-//     (photo) => {
-//       photo.addEventListener(
-//         "animationend",
-//         (event) => {
-//           console.log("an animation has ended!")
-//           console.log(event)
-//           slidingPhotos()
-//         }
-//       )
-//     }
-//   )
-// }
-
-// window.addEventListener(
-//   "DOMContentLoaded",
-//   () => {
-//     slidingPhotos()
-//   }
-// )
-
-// setInterval(
-//   () => {
-//     slidingPhotos()
-//   },
-//   slidingKeyFramesDuration
-// )
-
-// window.addEventListener('DOMContentLoaded', () => {
-//   setInterval(slidingAnimation, 4000);
-// });
-
-// let photoIndex = 0
-
-// const slidingAnimation = () => {  
-  
-//   photos.forEach(
-//     (photo) => {
-//       if(photo.classList.contains("sliding-photo")) {
-//         photo.classList.remove("sliding-photo")
-//       } else if (welcomeSection.contains(photo)) {
-//         welcomeSection.removeChild(photo)
-//       }
-//     }
-//   )
-
-//   welcomeSection.appendChild(photos[photoIndex])
-//   photos[photoIndex].classList.add("sliding-photo")
-  
-//   if(photoIndex === 0) {
-//     welcomeSection.appendChild(photos[photoIndex + 1])
-//   } else {
-//     welcomeSection.appendChild(photos[photoIndex - 1])
-//   } 
-  
-//   photoIndex === 0 ? photoIndex = 1 : photoIndex = 0
-// }
-
-// slidingAnimation()
-
-// const slidingAnimation = () => {  
-  
-//   photos.forEach(photo => photo.classList.remove("sliding-photo"))
-//   photos[photoIndex].classList.add("sliding-photo")
-
-//   photoIndex += 1
-//   photoIndex === photos.length ? photoIndex = 0 : null
-// }
-
-// slidingAnimation()
-
-////////////////////////////////////////
-//////// scrolling effects
-////////////////////////////////////////
-
-//// growing skill circles
 
 const createSkillCircleObserver = () => {
   const callback = (entries, skillCircleObserver) => {
@@ -279,7 +187,7 @@ const aboutSectionObserver = () => {
   const aboutSectionObserverCallback = (entries, observer) => {
     entries.forEach((entry) => {
       if(entry.isIntersecting) {
-        entry.target.classList.add("vai-pra-pqp")
+        entry.target.classList.add("fading-class")
       }
     })
   }
@@ -293,9 +201,9 @@ const aboutSectionObserver = () => {
 
 const shrinkHeaderAndShowArrow = () => {
   const scrollPosition = window.scrollY
-
+  
   const shrinkThreshold = 100
-
+  
   if(scrollPosition > shrinkThreshold) {
     header.classList.add("shrunk-header")
     upArrow.classList.add("visible-up-arrow")
@@ -356,7 +264,7 @@ rightArrow.addEventListener(
 )
 
 // const linkToProject = (stringURL) => {
-//   const tempLink = document.createElement("a")
+  //   const tempLink = document.createElement("a")
 //   tempLink.setAttribute("href", stringURL)
 //   document.body.appendChild(tempLink)
 //   tempLink.click()
@@ -386,3 +294,84 @@ calculatorProject.addEventListener(
     document.body.removeChild(tempLink)
   }  
 )
+
+
+//setting listeners that will call the function
+  
+  // const attachAnimationEndListeners = () => {
+  //   photos.forEach(
+  //     (photo) => {
+  //       photo.addEventListener(
+  //         "animationend",
+  //         (event) => {
+  //           console.log("an animation has ended!")
+  //           console.log(event)
+  //           slidingPhotos()
+  //         }
+  //       )
+  //     }
+  //   )
+  // }
+  
+  // window.addEventListener(
+  //   "DOMContentLoaded",
+  //   () => {
+  //     slidingPhotos()
+  //   }
+  // )
+  
+  // setInterval(
+  //   () => {
+  //     slidingPhotos()
+  //   },
+  //   slidingKeyFramesDuration
+  // )
+  
+  // window.addEventListener('DOMContentLoaded', () => {
+  //   setInterval(slidingAnimation, 4000);
+  // });
+  
+  // let photoIndex = 0
+  
+  // const slidingAnimation = () => {  
+    
+  //   photos.forEach(
+  //     (photo) => {
+  //       if(photo.classList.contains("sliding-photo")) {
+  //         photo.classList.remove("sliding-photo")
+  //       } else if (welcomeSection.contains(photo)) {
+  //         welcomeSection.removeChild(photo)
+  //       }
+  //     }
+  //   )
+  
+  //   welcomeSection.appendChild(photos[photoIndex])
+  //   photos[photoIndex].classList.add("sliding-photo")
+    
+  //   if(photoIndex === 0) {
+  //     welcomeSection.appendChild(photos[photoIndex + 1])
+  //   } else {
+  //     welcomeSection.appendChild(photos[photoIndex - 1])
+  //   } 
+    
+  //   photoIndex === 0 ? photoIndex = 1 : photoIndex = 0
+  // }
+  
+  // slidingAnimation()
+  
+  // const slidingAnimation = () => {  
+    
+  //   photos.forEach(photo => photo.classList.remove("sliding-photo"))
+  //   photos[photoIndex].classList.add("sliding-photo")
+  
+  //   photoIndex += 1
+  //   photoIndex === photos.length ? photoIndex = 0 : null
+  // }
+  
+  // slidingAnimation()
+  
+  ////////////////////////////////////////
+  //////// scrolling effects
+  ////////////////////////////////////////
+  
+  //// growing skill circles
