@@ -652,6 +652,9 @@ address {
   .skill-explanation {
     margin-bottom: 0;
   }
+  #about-section {
+    padding-top: 0;
+  }
 }
 
 
