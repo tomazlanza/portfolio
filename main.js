@@ -234,7 +234,7 @@ upArrow.addEventListener(
 //////////////Portfolio effect
 //////////////////////////////////////
 
-const ArrowFunction = () => {
+const arrowFunction = () => {
   
   for(let i = 0; i < projects.length; i++){
     if(projects[i].classList.contains("highlighted-project")){
@@ -256,11 +256,11 @@ const ArrowFunction = () => {
 
 leftArrow.addEventListener(
   "click", 
-  ArrowFunction
+  arrowFunction
 )
 rightArrow.addEventListener(
   "click", 
-  ArrowFunction
+  arrowFunction
 )
 
 // const linkToProject = (stringURL) => {
