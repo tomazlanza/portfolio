@@ -14,7 +14,7 @@ const rightArrow = document.querySelector("#right-arrow")
 const upArrow = document.querySelector(".up-arrow")
 const projects = document.querySelectorAll(".project")
 const skillCircles = document.querySelectorAll(".skill-circle")
-const calculatorProject = document.querySelector("#calculator-project")
+const timeSeriesProject = document.querySelector("#time-series-project")
 const rgbFilterProject = document.querySelector("#rgb-filter-project")
 const skillsLink = document.querySelector("#skills-link")
 const portfolioLink = document.querySelector("#portfolio-link")
@@ -283,11 +283,11 @@ rgbFilterProject.addEventListener(
   }  
 )
 
-calculatorProject.addEventListener(
+timeSeriesProject.addEventListener(
   "click",
   () => {
     const tempLink = document.createElement("a")
-    tempLink.setAttribute("href", "https://tomazlanza.github.io/calculator/")
+    tempLink.setAttribute("href", "https://tomazlanza.github.io/time-series-modeling/")
     tempLink.setAttribute("target", "_blank");
     document.body.appendChild(tempLink)
     tempLink.click()

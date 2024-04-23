@@ -377,8 +377,8 @@ p:not(.welcome-message) {
   cursor: pointer;
 }
 
-#calculator-project {
-  background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/calculator-background.jpg");
+#time-series-project {
+  background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/time-series-background.jpg");
   background-size: cover;
 }
 
