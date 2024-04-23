@@ -52,10 +52,10 @@ const leftArrow = readFileSync(leftArrowPath)
 const rightArrow = readFileSync(rightArrowPath)
 
 //////////projects
-const calculatorProjectBackgroundPath = new URL("../public/images/calculator-background.jpg", import.meta.url)
+const timeSeriesProjectBackgroundPath = new URL("../public/images/time-series-background.jpg", import.meta.url)
 const rgbFilterProjectBackgroundPath = new URL("../public/images/rgb-filter-background.jpg", import.meta.url)
 
-const calculatorProjectBackground = readFileSync(calculatorProjectBackgroundPath)
+const timeSeriesProjectBackground = readFileSync(timeSeriesProjectBackgroundPath)
 const rgbFilterProjectBackground = readFileSync(rgbFilterProjectBackgroundPath)
 // ///////svg layers
 const layer1Path = new URL("../public/images/svg/layers/layer1.svg", import.meta.url)
@@ -148,9 +148,9 @@ const server = http.createServer((req, res) => {
       break
 
     //project backgrounds
-    case "/public/images/calculator-background.jpg":
+    case "/public/images/time-series-background.jpg":
       res.writeHead(200, {"Content-Type": "image/jpg"})
-      res.end(calculatorProjectBackground)
+      res.end(timeSeriesProjectBackground)
       break
     case "/public/images/rgb-filter-background.jpg":
       res.writeHead(200, {"Content-Type": "image/jpg"})
