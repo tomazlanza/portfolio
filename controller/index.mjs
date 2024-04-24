@@ -83,15 +83,15 @@ const server = http.createServer((req, res) => {
     
     ////main-files endpoints
     case "/":
-      res.writeHead(200, {"Content-Type": "text/html"})
+      res.writeHead(200, {"Content-Type": "text/html", "Cache-Control": "max-age=60, no-cache"})
       res.end(indexHTML)
       break
     case "/style.css":
-      res.writeHead(200, {"Content-Type": "text/css"})
+      res.writeHead(200, {"Content-Type": "text/css", "Cache-Control": "max-age=60, no-cache"})
       res.end(cssFile)
       break
     case "/main.js": 
-      res.writeHead(200, {"Content-Type": "text/javascript"})
+      res.writeHead(200, {"Content-Type": "text/javascript", "Cache-Control": "max-age=60, no-cache"})
       res.end(mainScript)
       break
     
@@ -100,92 +100,92 @@ const server = http.createServer((req, res) => {
     
     //header
     case "/public/images/header-background.png":
-      res.writeHead(200, {"Content-Type": "image/png"})
+      res.writeHead(200, {"Content-Type": "image/png", "Cache-Control": "max-age=604800"})
       res.end(headerBackground)
       break
 
     //welcome photos
     case "/public/images/first-profile-photo.jpg":
-      res.writeHead(200, {"Content-Type": "image/jpg"})
+      res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800, must-revalidate"})
       res.end(welcomePhoto1)
       break
     case "/public/images/second-profile-photo.jpg":
-      res.writeHead(200, {"Content-Type": "image/jpg"})
+      res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800, must-revalidate"})
       res.end(welcomePhoto2)
       break
 
     case "/public/images/svg/stylized-svg/arrow-up.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(upArrow)
       break
       
     //skill pictures
     case "/public/images/svg/stylized-svg/web-programming.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(webDevSVG)
       break
     case "/public/images/svg/stylized-svg/statistics.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(mathAndStatsSVG)
       break
     case "/public/images/svg/stylized-svg/scatterplot.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(dataAnalysisSVG)
       break
     case "/public/images/svg/stylized-svg/robot.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(automationSVG)
       break
     
     // portfolio arrows
     case "/public/images/svg/stylized-svg/arrow-left.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(leftArrow)
       break
     case "/public/images/svg/stylized-svg/arrow-right.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(rightArrow)
       break
 
     //project backgrounds
     case "/public/images/time-series-background.jpg":
-      res.writeHead(200, {"Content-Type": "image/jpg"})
+      res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
       res.end(timeSeriesProjectBackground)
       break
     case "/public/images/rgb-filter-background.jpg":
-      res.writeHead(200, {"Content-Type": "image/jpg"})
+      res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
       res.end(rgbFilterProjectBackground)
       break
 
     //svg layers
     case "/public/images/svg/layers/layer1.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(layer1)
       break
     case "/public/images/svg/layers/layer2.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(layer2)
       break
 
     //social-media logos
     case "/public/images/svg/social-media-logos/Golden-SVG-logos/1-Golden-github-logo.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(gitHubSVG)
       break
     case "/public/images/svg/social-media-logos/Golden-SVG-logos/2-Golden-linkedIn-logo.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(linkedInSVG)
       break
     case "/public/images/svg/social-media-logos/Golden-SVG-logos/3-Golden-Instagram-logo.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(instagramSVG)
       break
     case "/public/images/svg/social-media-logos/Golden-SVG-logos/4-Golden-e-mail-logo.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(emailSVG)
       break
     case "/public/images/svg/social-media-logos/Golden-SVG-logos/5-Golden-whatsapp-logo.svg":
-      res.writeHead(200, {"Content-Type": "image/svg+xml"})
+      res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(whatsappSVG)
       break
 
