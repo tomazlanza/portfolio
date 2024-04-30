@@ -478,7 +478,7 @@ address {
 
 @media (max-width: 1200px) {
   .photo {
-    width: 45dvw;
+    width: 35dvw;
   }
   #skills-section {
     padding-top: 8dvh;
