@@ -9,7 +9,7 @@ import { projectContainer } from "../projects.mjs"
 
 //////////////////main files
 const indexHTMLPath = new URL("../index.html", import.meta.url)
-const mainScriptPath = new URL("../main.mjs", import.meta.url)
+const mainScriptPath = new URL("../main.js", import.meta.url)
 const cssFilePath = new URL("../style.css", import.meta.url)
 
 const indexHTML =  readFileSync(indexHTMLPath, {encoding: "utf-8"})

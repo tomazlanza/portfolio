@@ -1,4 +1,5 @@
 import { projectContainer } from "./projects.mjs"
+console.log(projectContainer)
 
 // const paragraphs = document.querySelectorAll
 const header = document.querySelector("header")
