@@ -9,7 +9,7 @@ import { projectContainer } from "../projects.mjs"
 
 //////////////////main files
 const indexHTMLPath = new URL("../index.html", import.meta.url)
-const mainScriptPath = new URL("../main.js", import.meta.url)
+const mainScriptPath = new URL("../main.mjs", import.meta.url)
 const cssFilePath = new URL("../style.css", import.meta.url)
 
 const indexHTML =  readFileSync(indexHTMLPath, {encoding: "utf-8"})
@@ -104,7 +104,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, {"Content-Type": "text/css", "Cache-Control": "max-age=60, no-cache"})
       res.end(cssFile)
       break
-    case "/main.js": 
+    case "/main.mjs": 
       res.writeHead(200, {"Content-Type": "text/javascript", "Cache-Control": "max-age=60, no-cache"})
       res.end(mainScript)
       break
