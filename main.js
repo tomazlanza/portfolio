@@ -1,3 +1,5 @@
+import { projectContainer } from "./projects.mjs"
+
 // const paragraphs = document.querySelectorAll
 const header = document.querySelector("header")
 const article = document.querySelector("article")
@@ -70,12 +72,11 @@ aboutLink.addEventListener(
   }
 )
 
-////////////////////////////////////////
-//////// CSS animations
-////////////////////////////////////////
+///////////////////////////////////////////////////////
+////////////// Scrolling animations
+///////////////////////////////////////////////////////
 
 ////// header title
-
 const startCascadeAnimation = () => {
   titleChars.forEach(
     (char) => {char.classList.add("running-animation")}
@@ -89,73 +90,6 @@ window.addEventListener(
   "DOMContentLoaded", 
   () => setTimeout(startCascadeAnimation, 10000)
 )
-
-////// welcome photos
-
-const slidingKeyFrames = [
-  {
-    opacity: 1,
-    scale: 1,
-  },
-  {
-    opacity: 1,
-    scale: 1.05,
-  },
-  {
-    opacity: 0,
-    scale: 1.05,
-  },
-]
-
-let photoIndex = 0
-
-const slidingKeyFramesDuration = 8000
-
-const slidingKeyFramesOptions = {
-  duration: slidingKeyFramesDuration,
-  iterations: 1,
-  offset: [0, 0.99, 1],
-}
-
-const slidingPhotos = () => {
-
-  console.log("sliding function")
-
-  //removing all photos that differ from index-referenced photo 
-    //to avoid unintentional overlapping
-  for(let i = 0; i < photos.length; i++) {
-    photos[i].addEventListener(
-      "animationend", 
-      (event) => {
-        console.log(event)
-        slidingPhotos()
-      }
-    )
-
-    if(photos[i].classList.contains("top-welcome-photo")){
-      photos[i].classList.remove("top-welcome-photo")
-    } else if(i != photoIndex.valueOf()) {
-      welcomeSection.removeChild(photos[i])
-    }
-  }
-  
-  //animating index-referenced photo
-  photos[photoIndex].classList.add("top-welcome-photo")
-  photos[photoIndex].animate(slidingKeyFrames, slidingKeyFramesOptions)
-
-  //setting next value for photoIndex
-  photoIndex < (photos.length - 1) ? photoIndex =+ 1 : photoIndex = 0 
-
-  //appending next index-referenced photo
-    //before the animation is over
-  setTimeout(
-    () => {
-      welcomeSection.appendChild(photos[photoIndex])
-      console.log("new photo's been appended!")
-    }, (slidingKeyFramesDuration/2)
-  )
-}
-
 
 const createSkillCircleObserver = () => {
   const callback = (entries, skillCircleObserver) => {
@@ -180,25 +114,7 @@ window.addEventListener(
   createSkillCircleObserver
 )
 
-//// fade-in and -out
-
-const aboutSectionObserver = () => {
-  
-  const aboutSectionObserverCallback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add("fading-class")
-      }
-    })
-  }
-
-  const mainObserver = new IntersectionObserver(mainObserverCallback, options)
-  paragraphs.forEach(element => mainObserver.observe(element))
-}
-
-
 //// after first scroll
-
 const shrinkHeaderAndShowArrow = () => {
   const scrollPosition = window.scrollY
   
@@ -231,8 +147,56 @@ upArrow.addEventListener(
 )
 
 ///////////////////////////////////////
-//////////////Portfolio effect
+////////////// Portfolio effect
 //////////////////////////////////////
+
+const newArrowFunction = (
+  projectContainer,
+  pointingDirection,
+  typeSelection,
+) => {
+
+  for(let i = 0; i < projectContainer.length; i++){
+    if(
+      (projectContainer[i].classList.contains("highlighted-project")) &&
+      (projectContainer[i].classList.contains(typeSelection))
+    ){ 
+      // projects[i].style.transform = "translateX(-200%)"
+      projectContainer[i].style.display = "none"
+      projectContainer[i].classList.replace("highlighted-project", "hidden-project")
+      // console.log("highlighted project removed")
+      // console.log(projectContainer[i])
+      
+      switch(pointingDirection){
+        case('right'):
+          for (let j = i; j < projectContainer.length; j++){
+            if(projectContainer[j].classList.contains(typeSelection)){
+              // projectContainer[j].style.transform = "translateX(200%)"
+              projectContainer[j].style.display = "initial"        
+              // projectContainer[j].style.transform = "translateX(0%)"
+              projectContainer[j].classList.replace("hidden-project", "highlighted-project")
+              // console.log(projectContainer[i])
+            }
+            break
+          }
+          break
+        case('left'): 
+          for (let j = i; j === 0; j--) {
+            if(projectContainer[j].classList.contains(typeSelection)){
+              // projectContainer[i+1].style.transform = "translateX(200%)"
+              projectContainer[i-1].style.display = "initial"        
+              // projectContainer[i].style.transform = "translateX(0%)"
+              projectContainer[i-1].classList.replace("hidden-project", "highlighted-project")
+              // console.log(projectContainer[i])
+            }
+            break
+          }
+          break
+      } 
+    }
+  }  
+}
+
 
 const arrowFunction = () => {
   
@@ -263,14 +227,7 @@ rightArrow.addEventListener(
   arrowFunction
 )
 
-// const linkToProject = (stringURL) => {
-  //   const tempLink = document.createElement("a")
-//   tempLink.setAttribute("href", stringURL)
-//   document.body.appendChild(tempLink)
-//   tempLink.click()
-//   document.body.removeChild(tempLink)
-// }
-
+//////// 
 rgbFilterProject.addEventListener(
   "click",
   () => {
@@ -295,83 +252,3 @@ timeSeriesProject.addEventListener(
   }  
 )
 
-
-//setting listeners that will call the function
-  
-  // const attachAnimationEndListeners = () => {
-  //   photos.forEach(
-  //     (photo) => {
-  //       photo.addEventListener(
-  //         "animationend",
-  //         (event) => {
-  //           console.log("an animation has ended!")
-  //           console.log(event)
-  //           slidingPhotos()
-  //         }
-  //       )
-  //     }
-  //   )
-  // }
-  
-  // window.addEventListener(
-  //   "DOMContentLoaded",
-  //   () => {
-  //     slidingPhotos()
-  //   }
-  // )
-  
-  // setInterval(
-  //   () => {
-  //     slidingPhotos()
-  //   },
-  //   slidingKeyFramesDuration
-  // )
-  
-  // window.addEventListener('DOMContentLoaded', () => {
-  //   setInterval(slidingAnimation, 4000);
-  // });
-  
-  // let photoIndex = 0
-  
-  // const slidingAnimation = () => {  
-    
-  //   photos.forEach(
-  //     (photo) => {
-  //       if(photo.classList.contains("sliding-photo")) {
-  //         photo.classList.remove("sliding-photo")
-  //       } else if (welcomeSection.contains(photo)) {
-  //         welcomeSection.removeChild(photo)
-  //       }
-  //     }
-  //   )
-  
-  //   welcomeSection.appendChild(photos[photoIndex])
-  //   photos[photoIndex].classList.add("sliding-photo")
-    
-  //   if(photoIndex === 0) {
-  //     welcomeSection.appendChild(photos[photoIndex + 1])
-  //   } else {
-  //     welcomeSection.appendChild(photos[photoIndex - 1])
-  //   } 
-    
-  //   photoIndex === 0 ? photoIndex = 1 : photoIndex = 0
-  // }
-  
-  // slidingAnimation()
-  
-  // const slidingAnimation = () => {  
-    
-  //   photos.forEach(photo => photo.classList.remove("sliding-photo"))
-  //   photos[photoIndex].classList.add("sliding-photo")
-  
-  //   photoIndex += 1
-  //   photoIndex === photos.length ? photoIndex = 0 : null
-  // }
-  
-  // slidingAnimation()
-  
-  ////////////////////////////////////////
-  //////// scrolling effects
-  ////////////////////////////////////////
-  
-  //// growing skill circles

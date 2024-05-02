@@ -1,9 +1,10 @@
 import http from "node:http"
 import { readFileSync } from "fs"
 import { URL } from "node:url"
+import { projectContainer } from "../projects.mjs"
 
 ////////////////////////////////////////////////////////////
-/////setting paths and reading files to be served
+///// setting paths and reading files to be served
 ////////////////////////////////////////////////////////////
 
 //////////////////main files
@@ -51,12 +52,26 @@ const rightArrowPath = new URL("../public/images/svg/stylized-svg/arrow-right.sv
 const leftArrow = readFileSync(leftArrowPath)
 const rightArrow = readFileSync(rightArrowPath)
 
-//////////projects
-const timeSeriesProjectBackgroundPath = new URL("../public/images/time-series-background.jpg", import.meta.url)
-const rgbFilterProjectBackgroundPath = new URL("../public/images/rgb-filter-background.jpg", import.meta.url)
+// const projectImages = new Object
+// projectImages[variableName] = readFileSync(project.pathToImage)
 
-const timeSeriesProjectBackground = readFileSync(timeSeriesProjectBackgroundPath)
-const rgbFilterProjectBackground = readFileSync(rgbFilterProjectBackgroundPath)
+// project[projectImage] = readFileSync(project.pathToImage)
+
+//////////projects
+
+// projectContainer.forEach((project) => {
+//   const projectImage = `${project.projectName}Image`
+//   project[projectImage] = readFileSync(project.pathToImage)
+// })
+
+// console.log(projectContainer)
+
+// const timeSeriesProjectBackgroundPath = new URL("../public/images/time-series-background.jpg", import.meta.url)
+// const rgbFilterProjectBackgroundPath = new URL("../public/images/rgb-filter-background.jpg", import.meta.url)
+
+// const timeSeriesProjectBackground = readFileSync(timeSeriesProjectBackgroundPath)
+// const rgbFilterProjectBackground = readFileSync(rgbFilterProjectBackgroundPath)
+
 // ///////svg layers
 const layer1Path = new URL("../public/images/svg/layers/layer1.svg", import.meta.url)
 const layer2Path = new URL("../public/images/svg/layers/layer2.svg", import.meta.url)
@@ -79,9 +94,8 @@ const whatsappSVG = readFileSync(whatsappSVGPath)
 
 const server = http.createServer((req, res) => {
   
+  ////endpoints for all files, but project-related ones (see if this description makes sense)
   switch(req.url){
-    
-    ////main-files endpoints
     case "/":
       res.writeHead(200, {"Content-Type": "text/html", "Cache-Control": "max-age=60, no-cache"})
       res.end(indexHTML)
@@ -94,7 +108,6 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, {"Content-Type": "text/javascript", "Cache-Control": "max-age=60, no-cache"})
       res.end(mainScript)
       break
-    
 
     ////images endpoints
     
@@ -148,9 +161,19 @@ const server = http.createServer((req, res) => {
       break
 
     //project backgrounds
+    // case "/public/images/time-series-background.jpg":
+    //   res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
+    //   res.end(timeSeriesProjectBackground)
+    //   break
+    // case "/public/images/rgb-filter-background.jpg":
+    //   res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
+    //   res.end(rgbFilterProjectBackground)
+    //   break
+      
     case "/public/images/time-series-background.jpg":
       res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
-      res.end(timeSeriesProjectBackground)
+      // res.end(timeSeriesProjectBackground)
+      res.end(projectContainer)
       break
     case "/public/images/rgb-filter-background.jpg":
       res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
@@ -188,13 +211,46 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(whatsappSVG)
       break
+      res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
+      res.end()
+      const projectURLs = new Array
 
-    default:
-      res.statusCode = 404
-      res.end("There's been an error when trying to access the server!")
+    // default:
+    //   res.statusCode = 404
+    //   res.end("There's been an error when trying to access the server!")
   }
-}
-)
+
+  // default:
+    //   res.statusCode = 404
+    //   res.end("There's been an error when trying to access the server!")
+    // project-related endpoints
+    
+
+    // projectContainer.forEach(
+    //   (project)=>{
+    //     let projectEndpoint = project.pathToImage.pathname
+    //     projectEndpoint = path.replace(/^\/C:/, '');
+    //     console.log(`This is: ${projectEndpoint}`)
+        // projectURLs.push(projectEndpoint)
+        
+        // res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
+        // res.end()
+    //   }
+    // )
+    
+})
+
+//
+
+    //project backgrounds
+    // case "/public/images/time-series-background.jpg":
+    //   res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
+    //   res.end(timeSeriesProjectBackground)
+    //   break
+    // case "/public/images/rgb-filter-background.jpg":
+    //   res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800"})
+    //   res.end(rgbFilterProjectBackground)
+    //   break
 
 const port = process.env.PORT || 8080
 
