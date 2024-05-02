@@ -74,10 +74,10 @@ aboutLink.addEventListener(
 )
 
 ///////////////////////////////////////////////////////
-////////////// Scrolling animations
+////////////// CSS animations
 ///////////////////////////////////////////////////////
 
-////// header title
+////// header title and logos cascade
 const startCascadeAnimation = () => {
   titleChars.forEach(
     (char) => {char.classList.add("running-animation")}
@@ -89,9 +89,11 @@ const startCascadeAnimation = () => {
 
 window.addEventListener(
   "DOMContentLoaded", 
-  () => setTimeout(startCascadeAnimation, 10000)
+  () => setTimeout(startCascadeAnimation, 8000)
 )
 
+////// scrolling effects
+// skill circles
 const createSkillCircleObserver = () => {
   const callback = (entries, skillCircleObserver) => {
     entries.forEach(
@@ -115,7 +117,7 @@ window.addEventListener(
   createSkillCircleObserver
 )
 
-//// after first scroll
+// header shrinkage
 const shrinkHeaderAndShowArrow = () => {
   const scrollPosition = window.scrollY
   
@@ -135,6 +137,7 @@ window.addEventListener(
   shrinkHeaderAndShowArrow
 )
 
+// appearing of up arrow
 const upArrowFunction = () => {
   window.scrollTo({
     top: 0,
@@ -148,7 +151,7 @@ upArrow.addEventListener(
 )
 
 ///////////////////////////////////////
-////////////// Portfolio effect
+////////////// showcase functions
 //////////////////////////////////////
 
 const newArrowFunction = (
