@@ -1,4 +1,4 @@
-//this file is for future scalability and refactoring 
+//this file will be used in future scalability and refactoring 
 
 class Project {
   constructor(
