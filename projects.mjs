@@ -1,3 +1,5 @@
+//this file is for future scalability and refactoring 
+
 class Project {
   constructor(
     projectName, 
@@ -64,6 +66,6 @@ projectContainer.push(calculator)
 // )
 // projectContainer.push(binaryIncomePrediction)
 
-console.log(projectContainer[0].pathToImage)
+// console.log(projectContainer[0].pathToImage)
 
 export { projectContainer }

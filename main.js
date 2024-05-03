@@ -1,6 +1,3 @@
-import { projectContainer } from "./projects.mjs"
-console.log(projectContainer)
-
 // const paragraphs = document.querySelectorAll
 const header = document.querySelector("header")
 const article = document.querySelector("article")
@@ -19,6 +16,7 @@ const projects = document.querySelectorAll(".project")
 const skillCircles = document.querySelectorAll(".skill-circle")
 const timeSeriesProject = document.querySelector("#time-series-project")
 const rgbFilterProject = document.querySelector("#rgb-filter-project")
+const calculatorProject = document.querySelector("#calculator-project")
 const skillsLink = document.querySelector("#skills-link")
 const portfolioLink = document.querySelector("#portfolio-link")
 const aboutLink = document.querySelector("#about-link")
@@ -154,81 +152,46 @@ upArrow.addEventListener(
 ////////////// showcase functions
 //////////////////////////////////////
 
-const newArrowFunction = (
-  projectContainer,
-  pointingDirection,
-  typeSelection,
-) => {
-
-  for(let i = 0; i < projectContainer.length; i++){
-    if(
-      (projectContainer[i].classList.contains("highlighted-project")) &&
-      (projectContainer[i].classList.contains(typeSelection))
-    ){ 
-      // projects[i].style.transform = "translateX(-200%)"
-      projectContainer[i].style.display = "none"
-      projectContainer[i].classList.replace("highlighted-project", "hidden-project")
-      // console.log("highlighted project removed")
-      // console.log(projectContainer[i])
-      
-      switch(pointingDirection){
-        case('right'):
-          for (let j = i; j < projectContainer.length; j++){
-            if(projectContainer[j].classList.contains(typeSelection)){
-              // projectContainer[j].style.transform = "translateX(200%)"
-              projectContainer[j].style.display = "initial"        
-              // projectContainer[j].style.transform = "translateX(0%)"
-              projectContainer[j].classList.replace("hidden-project", "highlighted-project")
-              // console.log(projectContainer[i])
-            }
-            break
-          }
-          break
-        case('left'): 
-          for (let j = i; j === 0; j--) {
-            if(projectContainer[j].classList.contains(typeSelection)){
-              // projectContainer[i+1].style.transform = "translateX(200%)"
-              projectContainer[i-1].style.display = "initial"        
-              // projectContainer[i].style.transform = "translateX(0%)"
-              projectContainer[i-1].classList.replace("hidden-project", "highlighted-project")
-              // console.log(projectContainer[i])
-            }
-            break
-          }
-          break
-      } 
-    }
-  }  
-}
-
-
-const arrowFunction = () => {
+const arrowFunction = (pointingDirection) => {
+  
+  let showcaseIndex
   
   for(let i = 0; i < projects.length; i++){
+    console.log(projects)
+
     if(projects[i].classList.contains("highlighted-project")){
       projects[i].style.transform = "translateX(-200%)"
       projects[i].style.display = "none"
       projects[i].classList.replace("highlighted-project", "hidden-project")
-      console.log("i've removed the highlighted project")
-      console.log(projects[i])
-      continue
-    } if(projects[i].classList.contains("hidden-project")){
-      projects[i].style.transform = "translateX(200%)"
-      projects[i].style.display = "initial"        
-      projects[i].style.transform = "translateX(0%)"
-      projects[i].classList.replace("hidden-project", "highlighted-project")
-      console.log(projects[i])
+      
+      switch(pointingDirection){
+        case "left":
+          showcaseIndex = (i-1) < 0 ? (projects.length - 1) : (i-1)
+          break
+
+        case "right":
+          showcaseIndex = (i+1) > (projects.length - 1) ? 0 : (i+1)
+          break
+        }
+        
+        console.log(showcaseIndex)
+        console.log(projects[showcaseIndex])
+        projects[showcaseIndex].style.transform = "translateX(200%)"
+        projects[showcaseIndex].style.display = "initial"        
+        projects[showcaseIndex].style.transform = "translateX(0%)"
+        projects[showcaseIndex].classList.replace("hidden-project", "highlighted-project")
+        break
     }
   }
 }
 
 leftArrow.addEventListener(
   "click", 
-  arrowFunction
+  () => arrowFunction("left")
 )
 rightArrow.addEventListener(
   "click", 
-  arrowFunction
+  () => arrowFunction("right")
 )
 
 //////// 
@@ -249,6 +212,18 @@ timeSeriesProject.addEventListener(
   () => {
     const tempLink = document.createElement("a")
     tempLink.setAttribute("href", "https://tomazlanza.github.io/time-series-modeling/")
+    tempLink.setAttribute("target", "_blank");
+    document.body.appendChild(tempLink)
+    tempLink.click()
+    document.body.removeChild(tempLink)
+  }  
+)
+
+calculatorProject.addEventListener(
+  "click",
+  () => {
+    const tempLink = document.createElement("a")
+    tempLink.setAttribute("href", "https://tomazlanza.github.io/calculator/")
     tempLink.setAttribute("target", "_blank");
     document.body.appendChild(tempLink)
     tempLink.click()
