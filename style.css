@@ -382,6 +382,11 @@ p:not(.welcome-message) {
   background-size: cover;
 }
 
+#calculator-project {
+  background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/calculator-background.jpg");
+  background-size: cover;
+}
+
 #rgb-filter-project {
   background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/rgb-filter-background.jpg");
   background-size: cover;

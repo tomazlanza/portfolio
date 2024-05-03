@@ -16,6 +16,7 @@ const projects = document.querySelectorAll(".project")
 const skillCircles = document.querySelectorAll(".skill-circle")
 const timeSeriesProject = document.querySelector("#time-series-project")
 const rgbFilterProject = document.querySelector("#rgb-filter-project")
+const calculatorProject = document.querySelector("#calculator-project")
 const skillsLink = document.querySelector("#skills-link")
 const portfolioLink = document.querySelector("#portfolio-link")
 const aboutLink = document.querySelector("#about-link")
@@ -70,12 +71,11 @@ aboutLink.addEventListener(
   }
 )
 
-////////////////////////////////////////
-//////// CSS animations
-////////////////////////////////////////
+///////////////////////////////////////////////////////
+////////////// CSS animations
+///////////////////////////////////////////////////////
 
-////// header title
-
+////// header title and logos cascade
 const startCascadeAnimation = () => {
   titleChars.forEach(
     (char) => {char.classList.add("running-animation")}
@@ -87,76 +87,11 @@ const startCascadeAnimation = () => {
 
 window.addEventListener(
   "DOMContentLoaded", 
-  () => setTimeout(startCascadeAnimation, 10000)
+  () => setTimeout(startCascadeAnimation, 8000)
 )
 
-////// welcome photos
-
-const slidingKeyFrames = [
-  {
-    opacity: 1,
-    scale: 1,
-  },
-  {
-    opacity: 1,
-    scale: 1.05,
-  },
-  {
-    opacity: 0,
-    scale: 1.05,
-  },
-]
-
-let photoIndex = 0
-
-const slidingKeyFramesDuration = 8000
-
-const slidingKeyFramesOptions = {
-  duration: slidingKeyFramesDuration,
-  iterations: 1,
-  offset: [0, 0.99, 1],
-}
-
-const slidingPhotos = () => {
-
-  console.log("sliding function")
-
-  //removing all photos that differ from index-referenced photo 
-    //to avoid unintentional overlapping
-  for(let i = 0; i < photos.length; i++) {
-    photos[i].addEventListener(
-      "animationend", 
-      (event) => {
-        console.log(event)
-        slidingPhotos()
-      }
-    )
-
-    if(photos[i].classList.contains("top-welcome-photo")){
-      photos[i].classList.remove("top-welcome-photo")
-    } else if(i != photoIndex.valueOf()) {
-      welcomeSection.removeChild(photos[i])
-    }
-  }
-  
-  //animating index-referenced photo
-  photos[photoIndex].classList.add("top-welcome-photo")
-  photos[photoIndex].animate(slidingKeyFrames, slidingKeyFramesOptions)
-
-  //setting next value for photoIndex
-  photoIndex < (photos.length - 1) ? photoIndex =+ 1 : photoIndex = 0 
-
-  //appending next index-referenced photo
-    //before the animation is over
-  setTimeout(
-    () => {
-      welcomeSection.appendChild(photos[photoIndex])
-      console.log("new photo's been appended!")
-    }, (slidingKeyFramesDuration/2)
-  )
-}
-
-
+////// scrolling effects
+// skill circles
 const createSkillCircleObserver = () => {
   const callback = (entries, skillCircleObserver) => {
     entries.forEach(
@@ -180,25 +115,7 @@ window.addEventListener(
   createSkillCircleObserver
 )
 
-//// fade-in and -out
-
-const aboutSectionObserver = () => {
-  
-  const aboutSectionObserverCallback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add("fading-class")
-      }
-    })
-  }
-
-  const mainObserver = new IntersectionObserver(mainObserverCallback, options)
-  paragraphs.forEach(element => mainObserver.observe(element))
-}
-
-
-//// after first scroll
-
+// header shrinkage
 const shrinkHeaderAndShowArrow = () => {
   const scrollPosition = window.scrollY
   
@@ -218,6 +135,7 @@ window.addEventListener(
   shrinkHeaderAndShowArrow
 )
 
+// appearing of up arrow
 const upArrowFunction = () => {
   window.scrollTo({
     top: 0,
@@ -231,46 +149,52 @@ upArrow.addEventListener(
 )
 
 ///////////////////////////////////////
-//////////////Portfolio effect
+////////////// showcase functions
 //////////////////////////////////////
 
-const arrowFunction = () => {
+const arrowFunction = (pointingDirection) => {
+  
+  let showcaseIndex
   
   for(let i = 0; i < projects.length; i++){
+    console.log(projects)
+
     if(projects[i].classList.contains("highlighted-project")){
       projects[i].style.transform = "translateX(-200%)"
       projects[i].style.display = "none"
       projects[i].classList.replace("highlighted-project", "hidden-project")
-      console.log("i've removed the highlighted project")
-      console.log(projects[i])
-      continue
-    } if(projects[i].classList.contains("hidden-project")){
-      projects[i].style.transform = "translateX(200%)"
-      projects[i].style.display = "initial"        
-      projects[i].style.transform = "translateX(0%)"
-      projects[i].classList.replace("hidden-project", "highlighted-project")
-      console.log(projects[i])
+      
+      switch(pointingDirection){
+        case "left":
+          showcaseIndex = (i-1) < 0 ? (projects.length - 1) : (i-1)
+          break
+
+        case "right":
+          showcaseIndex = (i+1) > (projects.length - 1) ? 0 : (i+1)
+          break
+        }
+        
+        console.log(showcaseIndex)
+        console.log(projects[showcaseIndex])
+        projects[showcaseIndex].style.transform = "translateX(200%)"
+        projects[showcaseIndex].style.display = "initial"        
+        projects[showcaseIndex].style.transform = "translateX(0%)"
+        projects[showcaseIndex].classList.replace("hidden-project", "highlighted-project")
+        break
     }
   }
 }
 
 leftArrow.addEventListener(
   "click", 
-  arrowFunction
+  () => arrowFunction("left")
 )
 rightArrow.addEventListener(
   "click", 
-  arrowFunction
+  () => arrowFunction("right")
 )
 
-// const linkToProject = (stringURL) => {
-  //   const tempLink = document.createElement("a")
-//   tempLink.setAttribute("href", stringURL)
-//   document.body.appendChild(tempLink)
-//   tempLink.click()
-//   document.body.removeChild(tempLink)
-// }
-
+//////// 
 rgbFilterProject.addEventListener(
   "click",
   () => {
@@ -288,6 +212,18 @@ timeSeriesProject.addEventListener(
   () => {
     const tempLink = document.createElement("a")
     tempLink.setAttribute("href", "https://tomazlanza.github.io/time-series-modeling/")
+    tempLink.setAttribute("target", "_blank");
+    document.body.appendChild(tempLink)
+    tempLink.click()
+    document.body.removeChild(tempLink)
+  }  
+)
+
+calculatorProject.addEventListener(
+  "click",
+  () => {
+    const tempLink = document.createElement("a")
+    tempLink.setAttribute("href", "https://tomazlanza.github.io/calculator/")
     tempLink.setAttribute("target", "_blank");
     document.body.appendChild(tempLink)
     tempLink.click()
