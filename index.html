@@ -57,6 +57,11 @@
       <div id="nav-wrapper">
         <nav>
           <span>
+            <a id="about-link">
+              About
+            </a>
+          </span>
+          <span>
             <a id="skills-link">
               Skills
             </a>
@@ -66,89 +71,100 @@
               Portfolio
             </a>
           </span>
-          <span>
-            <a id="about-link">
-              About
-            </a>
-          </span>
         </nav>
       </div>
     </header>
 
     <article>
-      <section id="welcome-section">
-        <div id="skills-section">
-          <div class="skills-wrapper" id="first-skills-wrapper">
-            <div class="skill">
-              <div class="skill-circle hidden-skill-circle">
-                <img 
-                src="./public/images/svg/stylized-svg/scatterplot.svg"
-                alt="Data-analysis picture."
-                class="skill-image"
-                >
-              </div>
-              <h3>
-                Data Analysis
-              </h3>
-              <p class="skill-explanation">In the Data Era, the sky is the limit when it comes to data-tailored applications and solutions.</p>
-            </div>
-            <div class="skill">
-              <div class="skill-circle hidden-skill-circle">
-                <img 
-                src="./public/images/svg/stylized-svg/statistics.svg"
-                alt="Statistics picture."
-                class="skill-image mathematics-statistics-image"
-                >
-              </div>
-              <h3>
-                Data Modeling
-              </h3>
-              <p class="skill-explanation">Decision making powered by explanatory and predictive models.</p>
-            </div>        
-          </div>
-          <div class="skills-wrapper" id="second-skills-wrapper">
-            <div class="skill">
-              <div class="skill-circle hidden-skill-circle">
-                <img 
-                  src="./public/images/svg/stylized-svg/robot.svg"
-                  alt="Automation picture."
-                  class="skill-image"
-                >
-              </div>
-              <h3>
-                Task Automation
-              </h3>
-              <p class="skill-explanation">Soaring productivity through smart automation of tasks.</p>
-            </div>
-            <div class="skill">
-              <div class="skill-circle hidden-skill-circle">
-                <img 
-                  src="./public/images/svg/stylized-svg/web-programming.svg"
-                  alt="Web-development picture."
-                  class="skill-image"
-                >
-              </div>
-              <h3>
-                Web Development
-              </h3>
-              <p class="skill-explanation">The strength and versatility of web-based applications.</p>
-            </div>
-          </div>
+      
+      <section id="about-section">
+        <div>
+          <h2 class="intro-effect" style="--intro-order: 0">
+            About
+          </h2>
         </div>
-
-        <img class="photo photo-1 top-welcome-photo" src="http://tomaz-lanza.uc.r.appspot.com/public/images/second-profile-photo.jpg">
-        <!-- <img class="photo photo-2" src="http://tomaz-lanza.uc.r.appspot.com/public/images/second-profile-photo.jpg"> -->
+        <div>
+          <p class="intro-effect" style="--intro-order: 1">
+            Greetings! I hold a bachelor's degree in Actuarial Science from Federal University of Minas Gerais (UFMG) and have almost seven years of corporate experience in data-driven tech environments.
+          </p>
+          <p id="last-paragraph" class="intro-effect" style="--intro-order: 2">
+            I've built this portfolio to showcase projects related to Data Science and Web Applications. Its source code can be accessed through <a style="color: var(--text-color);" href="https://github.com/tomazlanza/portfolio" target="_blank">this link</a>.
+          </p>
+        </div>
         
-        <img
-          class="up-arrow"
-          src="./public/images/svg/stylized-svg/arrow-up.svg"
-        >
+                <img class="photo photo-1 top-welcome-photo" src="http://tomaz-lanza.uc.r.appspot.com/public/images/second-profile-photo.jpg">
+                <!-- <img class="photo photo-2" src="http://tomaz-lanza.uc.r.appspot.com/public/images/second-profile-photo.jpg"> -->
+                
+                <img
+                  class="up-arrow"
+                  src="./public/images/svg/stylized-svg/arrow-up.svg"
+                >
       </section>
 
       <div class="spacer layer1"></div>
-      
+      <section id="skills-section">
+        <div class="skills-wrapper" id="first-skills-wrapper">
+          <div class="skill">
+            <div class="skill-circle hidden-skill-circle">
+              <img 
+              src="./public/images/svg/stylized-svg/scatterplot.svg"
+              alt="Data-analysis picture."
+              class="skill-image"
+              >
+            </div>
+            <h3>
+              Data Analysis
+            </h3>
+            <p class="skill-explanation">In the Data Era, the sky is the limit when it comes to data-tailored applications and solutions.</p>
+          </div>
+          <div class="skill">
+            <div class="skill-circle hidden-skill-circle">
+              <img 
+              src="./public/images/svg/stylized-svg/statistics.svg"
+              alt="Statistics picture."
+              class="skill-image mathematics-statistics-image"
+              >
+            </div>
+            <h3>
+              Data Modeling
+            </h3>
+            <p class="skill-explanation">Decision making powered by explanatory and predictive models.</p>
+          </div>        
+        </div>
+        <div class="skills-wrapper" id="second-skills-wrapper">
+          <div class="skill">
+            <div class="skill-circle hidden-skill-circle">
+              <img 
+                src="./public/images/svg/stylized-svg/robot.svg"
+                alt="Automation picture."
+                class="skill-image"
+              >
+            </div>
+            <h3>
+              Task Automation
+            </h3>
+            <p class="skill-explanation">Soaring productivity through smart automation of tasks.</p>
+          </div>
+          <div class="skill">
+            <div class="skill-circle hidden-skill-circle">
+              <img 
+                src="./public/images/svg/stylized-svg/web-programming.svg"
+                alt="Web-development picture."
+                class="skill-image"
+              >
+            </div>
+            <h3>
+              Web Development
+            </h3>
+            <p class="skill-explanation">The strength and versatility of web-based applications.</p>
+          </div>
+        </div>
+      </section>
       <!-- <div class="spacer layer2"></div> -->
-            
+      
+      <div class="spacer layer1"></div>
+
+
       <section id="portfolio-section">
         <div>
           <h2>
@@ -189,27 +205,6 @@
         </div>        
       </section>
 
-      <div class="spacer layer1"></div>
-
-      <section id="about-section">
-        <div>
-          <h2>
-            About
-          </h2>
-        </div>
-        <div>
-          <p>
-            Greetings! With almost seven years of corporate experience, I have acquired skills in the Data Science and Web Development fields.
-          </p>
-          <p>
-            I hold a bachelor's degree in Actuarial Science at Federal University of Minas Gerais (UFMG) and have a background concerning a variety of technologies, such as R, Python, SQL, VBA, JavaScript/TypeScript, Node.js, and more.
-          </p>
-          <p id="last-paragraph">
-            Besides mere usage of individual technologies, my path has led me to focus on the core concepts that underpin them and the possibilities of their implementation, favoring comprehensive and versatile problem solving.
-          </p>
-        </div>
-      </section>
-    
       <div id="scroll-to-top">
       </div>
     

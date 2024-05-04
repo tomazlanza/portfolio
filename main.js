@@ -28,12 +28,18 @@ const aboutLink = document.querySelector("#about-link")
 skillsLink.addEventListener(
   "click",
   ()  => {
-    window.scrollTo( 
-      {
-        top: 0, 
-        behavior: "smooth",
-      }
+    skillsSection.scrollIntoView(
+      {behavior: "smooth"}
     )
+    setTimeout(
+      () => {
+        skillsSection.scroll(
+          {
+            top: 50,
+            behavior: "smooth",
+          }
+        )
+      }, 400)
   }
 )
 portfolioLink.addEventListener(
@@ -56,18 +62,12 @@ portfolioLink.addEventListener(
 aboutLink.addEventListener(
   "click",
   ()  => {
-    aboutSection.scrollIntoView(
-      {behavior: "smooth"}
+    window.scrollTo( 
+      {
+        top: 0, 
+        behavior: "smooth",
+      }
     )
-    setTimeout(
-      () => {
-        aboutSection.scroll(
-          {
-            top: 50,
-            behavior: "smooth",
-          }
-        )
-      }, 400)
   }
 )
 
