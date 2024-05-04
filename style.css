@@ -133,7 +133,7 @@ h2 {
 
 .intro-effect {
   animation: introEffect 0.8s ease forwards;
-  animation-delay: calc(var(--intro-order) * 0.8s);
+  animation-delay: calc(var(--intro-order) * 0.5s);
   transform: translateX(-200%);
 }
 
