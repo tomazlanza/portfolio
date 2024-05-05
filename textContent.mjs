@@ -8,8 +8,7 @@ const textContent = {
     //about section
     "about-section-title": "About",
     "about-section-1st-p": "Greetings! I hold a bachelor's degree in Actuarial Science from Federal University of Minas Gerais (UFMG) and have almost seven years of corporate experience in data-driven tech environments.",
-    "about-section-last-p": "I've built this portfolio to showcase projects related to Data Science and Web Applications. Its source code can be accessed through .",
-    "source-code-link": "this link",
+    "about-section-last-p": "I've built this portfolio to showcase projects related to Data Science and Web Applications. Its source code can be accessed through this ",
 
     //skills section
     "data-analysis-title": "Data Analysis",
@@ -38,7 +37,7 @@ const textContent = {
     //about section
     "about-section-title": "Sobre",
     "about-section-1st-p": "Saudações! Tenho graduação em Ciências Atuariais pela Universidade Federal de Minas Gerais (UFMG) e quase sete anos de experiência corporativa em ambientes tech direcionados por dados.",
-    "about-section-last-p": "Construí este portfólio para apresentar projetos relacionados à Ciências de Dados e Aplicações Web. Seu código fonte pode ser acessado .",
+    "about-section-last-p": "Construí este portfólio para apresentar projetos relacionados a Ciências de Dados e Aplicações Web. Seu código fonte pode ser acessado por este ",
     "source-code-link": "neste link",
 
     //skills section

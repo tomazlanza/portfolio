@@ -15,6 +15,9 @@ const indexHTML =  readFileSync(indexHTMLPath, {encoding: "utf-8"})
 const mainScript =  readFileSync(mainScriptPath, {encoding: "utf-8"})
 const cssFile =  readFileSync(cssFilePath, {encoding: "utf-8"})
 
+const textContentPath = new URL("../textContent.mjs", import.meta.url)
+const textContentModule = readFileSync(textContentPath, {encoding: "utf-8"})
+
 // //////////////////images
 // ///////header background
 const headerBackgroundPath = new URL("../public/images/header-background.png", import.meta.url)
@@ -97,7 +100,11 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, {"Content-Type": "text/javascript", "Cache-Control": "max-age=60, no-cache"})
       res.end(mainScript)
       break
-    
+
+    case "/textContent.mjs":
+      res.writeHead(200, {"Content-Type": "text/javascript", "Cache-Control": "max-age=60, no-cache"})
+      res.end(textContentModule)
+      break
 
     ////images endpoints
     

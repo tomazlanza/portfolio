@@ -114,8 +114,9 @@ const changingLanguage = () => {
   //about section
   aboutSectionTitle.innerHTML = textContent[languageSelector.value]["about-section-title"].valueOf() 
   aboutSection1stP.innerHTML = textContent[languageSelector.value]["about-section-1st-p"].valueOf() 
-  aboutSectionLastP.innerHTML = textContent[languageSelector.value]["about-section-last-p"].valueOf() 
-  sourceCodeLink.innerHTML = textContent[languageSelector.value]["source-code-link"].valueOf() 
+  aboutSectionLastP.innerHTML = textContent[languageSelector.value]["about-section-last-p"].valueOf()
+  aboutSectionLastP.appendChild(sourceCodeLink)
+  aboutSectionLastP.innerHTML += "."
 
   //skills section
   dataAnalysisTitle.innerHTML = textContent[languageSelector.value]["data-analysis-title"].valueOf() 
@@ -142,7 +143,6 @@ languageSelector.addEventListener(
 window.addEventListener(
   "load",
   ()=>{
-    console.log("selector has listened")
     changingLanguage()
 
     languageSelector.selectedIndex = 0
