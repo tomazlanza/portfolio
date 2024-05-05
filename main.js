@@ -1,25 +1,55 @@
-// const paragraphs = document.querySelectorAll
-const header = document.querySelector("header")
-const article = document.querySelector("article")
-const titleChars = document.querySelectorAll(".title-char")
-const photos = document.querySelectorAll(".photo")
-const welcomeSection = document.querySelector("#welcome-section")
-const skillsSection = document.querySelector("#skills-section")
-const portfolioSection = document.querySelector("#portfolio-section")
-const aboutSection = document.querySelector("#about-section")
+import textContent from "./textContent.mjs"
 
-const logos = document.querySelectorAll(".logo")
-const leftArrow = document.querySelector("#left-arrow")
-const rightArrow = document.querySelector("#right-arrow")
-const upArrow = document.querySelector(".up-arrow")
-const projects = document.querySelectorAll(".project")
+//header
+const skillsLink = document.querySelector("#skills-link")
+const projectsLink = document.querySelector("#projects-link")
+const aboutLink = document.querySelector("#about-link")
+
+const languageSelector = document.querySelector("#language-selector")
+const header = document.querySelector("header")
+const titleChars = document.querySelectorAll(".title-char")
+
+// about section
+const aboutSectionTitle = document.querySelector("#about-section-title")
+const aboutSection1stP = document.querySelector("#about-section-1st-p")
+const aboutSectionLastP = document.querySelector("#about-section-last-p")
+const sourceCodeLink = document.querySelector("#source-code-link")
+
+// skills section
+const dataAnalysisTitle = document.querySelector("#data-analysis-title")
+const dataAnalysisExplanation = document.querySelector("#data-analysis-explanation")
+const dataModelingTitle = document.querySelector("#data-modeling-title")
+const dataModelingExplanation = document.querySelector("#data-modeling-explanation")
+const taskAutomationTitle = document.querySelector("#task-automation-title")
+const taskAutomationExplanation = document.querySelector("#task-automation-explanation")
+const webApplicationsTitle = document.querySelector("#web-applications-title")
+const webApplicationsExplanation = document.querySelector("#web-applications-explanation")
+
+const skillsSection = document.querySelector("#skills-section")
+
 const skillCircles = document.querySelectorAll(".skill-circle")
+
+//projects section
+const projectsSectionTitle = document.querySelector("#projects-section-title")
+const timeSeriesTitle = document.querySelector("#time-series-title")
+const rgbFilterTitle = document.querySelector("#rgb-filter-title")
+const calculatorTitle = document.querySelector("#calculator-title")
+const calculatorSubtitle = document.querySelector("#calculator-subtitle")
+
+const projectsSection = document.querySelector("#projects-section")
+const projects = document.querySelectorAll(".project")
+
 const timeSeriesProject = document.querySelector("#time-series-project")
 const rgbFilterProject = document.querySelector("#rgb-filter-project")
 const calculatorProject = document.querySelector("#calculator-project")
-const skillsLink = document.querySelector("#skills-link")
-const portfolioLink = document.querySelector("#portfolio-link")
-const aboutLink = document.querySelector("#about-link")
+
+const leftArrow = document.querySelector("#left-arrow")
+const rightArrow = document.querySelector("#right-arrow")
+
+
+const upArrow = document.querySelector(".up-arrow")
+
+const logos = document.querySelectorAll(".logo")
 
 ////////////////////////////////////////
 //////// navbar links
@@ -42,15 +72,15 @@ skillsLink.addEventListener(
       }, 400)
   }
 )
-portfolioLink.addEventListener(
+projectsLink.addEventListener(
   "click",
   ()  => {
-    portfolioSection.scrollIntoView(
+    projectsSection.scrollIntoView(
       {behavior: "smooth"}
     )
     setTimeout(
       () => {
-        portfolioSection.scroll(
+        projectsSection.scroll(
           {
             top: 50,
             behavior: "smooth",
@@ -68,6 +98,55 @@ aboutLink.addEventListener(
         behavior: "smooth",
       }
     )
+  }
+)
+
+/////////////////////////////
+//////// Language selection
+/////////////////////////////
+
+const changingLanguage = () => {
+  //navbar
+  aboutLink.innerHTML = textContent[languageSelector.value]["about-link"].valueOf()
+  skillsLink.innerHTML = textContent[languageSelector.value]["skills-link"].valueOf()
+  projectsLink.innerHTML = textContent[languageSelector.value]["projects-link"].valueOf()
+
+  //about section
+  aboutSectionTitle.innerHTML = textContent[languageSelector.value]["about-section-title"].valueOf() 
+  aboutSection1stP.innerHTML = textContent[languageSelector.value]["about-section-1st-p"].valueOf() 
+  aboutSectionLastP.innerHTML = textContent[languageSelector.value]["about-section-last-p"].valueOf() 
+  sourceCodeLink.innerHTML = textContent[languageSelector.value]["source-code-link"].valueOf() 
+
+  //skills section
+  dataAnalysisTitle.innerHTML = textContent[languageSelector.value]["data-analysis-title"].valueOf() 
+  dataAnalysisExplanation.innerHTML = textContent[languageSelector.value]["data-analysis-explanation"].valueOf() 
+  dataModelingTitle.innerHTML = textContent[languageSelector.value]["data-modeling-title"].valueOf() 
+  dataModelingExplanation.innerHTML = textContent[languageSelector.value]["data-modeling-explanation"].valueOf() 
+  taskAutomationTitle.innerHTML = textContent[languageSelector.value]["task-automation-title"].valueOf() 
+  taskAutomationExplanation.innerHTML = textContent[languageSelector.value]["task-automation-explanation"].valueOf() 
+  webApplicationsTitle.innerHTML = textContent[languageSelector.value]["web-applications-title"].valueOf() 
+  webApplicationsExplanation.innerHTML = textContent[languageSelector.value]["web-applications-explanation"].valueOf()  
+
+  //projects section
+  projectsSectionTitle.innerHTML = textContent[languageSelector.value]["projects-section-title"].valueOf() 
+  timeSeriesTitle.innerHTML = textContent[languageSelector.value]["time-series-title"].valueOf() 
+  rgbFilterTitle.innerHTML = textContent[languageSelector.value]["rgb-filter-title"].valueOf() 
+  calculatorTitle.innerHTML = textContent[languageSelector.value]["calculator-title"].valueOf() 
+  calculatorSubtitle.innerHTML = textContent[languageSelector.value]["calculator-subtitle"].valueOf()  
+}
+
+languageSelector.addEventListener(
+  "change",
+  changingLanguage
+)
+window.addEventListener(
+  "load",
+  ()=>{
+    console.log("selector has listened")
+    changingLanguage()
+
+    languageSelector.selectedIndex = 0
+    languageSelector.dispatchEvent(new Event("change"))
   }
 )
 

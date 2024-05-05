@@ -99,6 +99,21 @@ header {
 #nav-wrapper nav span a:hover {
   color: var(--third-details-color)
 }
+#language-selector{
+  position: absolute;
+  right: 5rem;
+  top: 1rem;
+  color: var(--second-details-color);
+  background-color: var(--second-bg-color);
+  border-color: var(--main-bg-color);
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+#language-selector:hover, 
+#language-selector option:hover {
+  cursor: pointer;
+}
 p {
   color: var(--fifth-details-color);
 }
@@ -289,7 +304,7 @@ p:not(.welcome-message) {
   position: relative;
   z-index: 10;
 }
-#portfolio-section {
+#projects-section {
   background-color: var(--main-bg-color);
   display: flex;
   flex-direction: column;
@@ -299,21 +314,21 @@ p:not(.welcome-message) {
   /* margin-bottom: 2rem; */
   padding-bottom: 11dvh;
 }
-#portfolio-section div:first-of-type {
+#projects-section div:first-of-type {
   display: flex;
   justify-content: center;
 }
-.portfolio-arrow {
+.projects-arrow {
   min-height: 16dvh;
   position: absolute;
 }
-.portfolio-arrow:first-of-type {
+.projects-arrow:first-of-type {
   left: 10%;
 }
-.portfolio-arrow:nth-of-type(2) {
+.projects-arrow:nth-of-type(2) {
   right: 10%;
 }
-.portfolio-arrow:hover {
+.projects-arrow:hover {
   scale: 1.1;
   cursor: pointer;
 }
@@ -376,7 +391,7 @@ p:not(.welcome-message) {
   background-size: cover;
 }
 
-#last-paragraph {
+#about-section-last-p {
   padding-bottom: 14rem;
 }
 /* scrolling effects for skill and about sections */
@@ -485,7 +500,7 @@ address {
   #projects-wrapper div h2 {
     font-size: 1.5rem;
   }
-  .portfolio-arrow {
+  .projects-arrow {
     min-height: 9dvh;
   }
   #left-arrow {
@@ -500,7 +515,7 @@ address {
   .project {
     min-width: 60%;
   }
-  #portfolio-section {
+  #projects-section {
     padding-top: 2rem;
   }
   .up-arrow {
@@ -517,7 +532,7 @@ address {
   .logo {
     margin-right: 0.7rem;
   }
-  #portfolio-section div h2 {
+  #projects-section div h2 {
     margin-top: 0;
   }
 }

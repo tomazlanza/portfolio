@@ -44,7 +44,7 @@ const mathAndStatsSVG = readFileSync(mathAndStatsSVGPath)
 const dataAnalysisSVG = readFileSync(dataAnalysisSVGPath)
 const automationSVG = readFileSync(automationSVGPath)
 
-// ///////portfolio arrows
+// ///////projects arrows
 const leftArrowPath = new URL("../public/images/svg/stylized-svg/arrow-left.svg", import.meta.url)
 const rightArrowPath = new URL("../public/images/svg/stylized-svg/arrow-right.svg", import.meta.url)
 
@@ -140,7 +140,7 @@ const server = http.createServer((req, res) => {
       res.end(automationSVG)
       break
     
-    // portfolio arrows
+    // projects arrows
     case "/public/images/svg/stylized-svg/arrow-left.svg":
       res.writeHead(200, {"Content-Type": "image/svg+xml", "Cache-Control": "max-age=604800"})
       res.end(leftArrow)
