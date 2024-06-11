@@ -381,6 +381,11 @@ p:not(.welcome-message) {
   background-size: cover;
 }
 
+#social-metrics-dashboard-project {
+  background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/social-metrics-dashboard-background.jpg");
+  background-size: cover;
+}
+
 #calculator-project {
   background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/calculator-background.jpg");
   background-size: cover;

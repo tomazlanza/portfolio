@@ -32,6 +32,7 @@ const skillCircles = document.querySelectorAll(".skill-circle")
 //projects section
 const projectsSectionTitle = document.querySelector("#projects-section-title")
 const timeSeriesTitle = document.querySelector("#time-series-title")
+const socialMetricsDashboardTitle = document.querySelector("#time-series-title")
 const rgbFilterTitle = document.querySelector("#rgb-filter-title")
 const calculatorTitle = document.querySelector("#calculator-title")
 const calculatorSubtitle = document.querySelector("#calculator-subtitle")
@@ -40,6 +41,7 @@ const projectsSection = document.querySelector("#projects-section")
 const projects = document.querySelectorAll(".project")
 
 const timeSeriesProject = document.querySelector("#time-series-project")
+const socialMetricsDashboardProject = document.querySelector("#social-metrics-dashboard-project")
 const rgbFilterProject = document.querySelector("#rgb-filter-project")
 const calculatorProject = document.querySelector("#calculator-project")
 
@@ -131,6 +133,7 @@ const changingLanguage = () => {
   //projects section
   projectsSectionTitle.innerHTML = textContent[languageSelector.value]["projects-section-title"].valueOf() 
   timeSeriesTitle.innerHTML = textContent[languageSelector.value]["time-series-title"].valueOf() 
+  socialMetricsDashboardTitle.innerHTML = textContent[languageSelector.value]["social-metrics-dashboard-title"].valueOf() 
   rgbFilterTitle.innerHTML = textContent[languageSelector.value]["rgb-filter-title"].valueOf() 
   calculatorTitle.innerHTML = textContent[languageSelector.value]["calculator-title"].valueOf() 
   calculatorSubtitle.innerHTML = textContent[languageSelector.value]["calculator-subtitle"].valueOf()  
@@ -291,6 +294,18 @@ timeSeriesProject.addEventListener(
   () => {
     const tempLink = document.createElement("a")
     tempLink.setAttribute("href", "https://tomazlanza.github.io/time-series-modeling/")
+    tempLink.setAttribute("target", "_blank");
+    document.body.appendChild(tempLink)
+    tempLink.click()
+    document.body.removeChild(tempLink)
+  }  
+)
+
+socialMetricsDashboardProject.addEventListener(
+  "click",
+  () => {
+    const tempLink = document.createElement("a")
+    tempLink.setAttribute("href", "https://app.powerbi.com/view?r=eyJrIjoiYzU1ZjM1YWEtNmJiZC00ZmQyLWFiZWEtYzUwZmY1ODY5NGIzIiwidCI6IjYxYTg5ZjlmLTEyMmUtNDY0Mi05NTcxLWQ5MDMyYmI2Mjc3MCJ9")
     tempLink.setAttribute("target", "_blank");
     document.body.appendChild(tempLink)
     tempLink.click()

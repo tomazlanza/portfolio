@@ -23,6 +23,7 @@ const textContent = {
     //projects section
     "projects-section-title": "Projects",
     "time-series-title": "Time Series Modeling",
+    "social-metrics-dashboard-title": "Social Metrics Dashboard",
     "rgb-filter-title": "RGB Filter",
     "calculator-title": "Calculator",
     "calculator-subtitle": "(with comma as decimal separator)",
@@ -53,6 +54,7 @@ const textContent = {
     //projects section
     "projects-section-title": "Projetos",
     "time-series-title": "Modelagem de Séries Temporais",
+    "social-metrics-dashboard-title": "Painel de Métricas Sociais",
     "rgb-filter-title": "Filtro RGB",
     "calculator-title": "Calculadora",
     "calculator-subtitle": "(com vírgula como separador decimal)",
