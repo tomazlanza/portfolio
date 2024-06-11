@@ -25,10 +25,10 @@ const headerBackgroundPath = new URL("../public/images/header-background.png", i
 const headerBackground = readFileSync(headerBackgroundPath)
 
 // ///////welcome photos
-const welcomePhoto1Path = new URL("../public/images/first-profile-photo.jpg", import.meta.url)
+// const welcomePhoto1Path = new URL("../public/images/first-profile-photo.jpg", import.meta.url)
 const welcomePhoto2Path = new URL("../public/images/second-profile-photo.jpg", import.meta.url)
 
-const welcomePhoto1 = readFileSync(welcomePhoto1Path)
+// const welcomePhoto1 = readFileSync(welcomePhoto1Path)
 const welcomePhoto2 = readFileSync(welcomePhoto2Path)
 
 // ////////up arrow
@@ -117,10 +117,10 @@ const server = http.createServer((req, res) => {
       break
 
     //welcome photos
-    case "/public/images/first-profile-photo.jpg":
-      res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800, must-revalidate"})
-      res.end(welcomePhoto1)
-      break
+    // case "/public/images/first-profile-photo.jpg":
+    //   res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800, must-revalidate"})
+    //   res.end(welcomePhoto1)
+    //   break
     case "/public/images/second-profile-photo.jpg":
       res.writeHead(200, {"Content-Type": "image/jpg", "Cache-Control": "max-age=604800, must-revalidate"})
       res.end(welcomePhoto2)
