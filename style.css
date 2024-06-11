@@ -383,6 +383,7 @@ p:not(.welcome-message) {
 
 #social-metrics-dashboard-project {
   background-image: url("https://tomaz-lanza.uc.r.appspot.com/public/images/social-metrics-dashboard-background.jpg");
+  /* background-image: url("./public/images/social-metrics-dashboard-background.jpg"); */
   background-size: cover;
 }
 
