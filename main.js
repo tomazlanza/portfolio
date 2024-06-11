@@ -32,7 +32,7 @@ const skillCircles = document.querySelectorAll(".skill-circle")
 //projects section
 const projectsSectionTitle = document.querySelector("#projects-section-title")
 const timeSeriesTitle = document.querySelector("#time-series-title")
-const socialMetricsDashboardTitle = document.querySelector("#time-series-title")
+const socialMetricsDashboardTitle = document.querySelector("#social-metrics-dashboard-title")
 const rgbFilterTitle = document.querySelector("#rgb-filter-title")
 const calculatorTitle = document.querySelector("#calculator-title")
 const calculatorSubtitle = document.querySelector("#calculator-subtitle")
